@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+
+<lst name="responseHeader">
+  <int name="status">0</int>
+  <int name="QTime">12</int>
+</lst>
+<result name="response" numFound="1" start="0">
+  <doc>
+    <str name="isbn">9788202505929</str>
+    <arr name="main_catalog_area">
+      <str>Bøker</str>
+      <str>Barnas ARK</str>
+    </arr>
+    <str name="title">Den lille kaninen som så gjerne ville so</str>
+    <str name="product_text">Foreldre har til alle tider lett etter gode teknikker for å få barna til å sovne. Nå har den svenske forfatteren Carl-Johan Forssén
+Ehrlin skrevet den ultimate godnatthistorie - som nærmest garantert får ditt barn til å sovne i løpet av få minutter. Nærmest som
+et trylleformular! Kaninen som så gjerne vil sovne har gått sin seiersgang inn i tusenvis av hjem, den har toppet Amazons
+bestselgerliste, og i løpet av kort tid er den blitt solgt til over tretti land.  Min treåring ville aldri sovne på kvelden, helt
+til jeg leste denne boka. Pedagogisk, medrivende og søvnfremkallende!  Dan Sylvebo, politisk skribent 
+ Nettet strømmer over av
+hilsener fra takknemlige foreldre: * Min datter er alltid urolig ved leggetid, dette er første gang jeg har fått henne til å sovne
+på under 20 minutter.   * Jeg fikk boken i dag, og sønnen vår, som er tre år gammel og alltid har hatt problemer med å sovne, falt
+i søvn før jeg var ferdig med side tre!  * Jeg er målløs og sitter bare og venter på at noen skal klype meg i armen.    *
+Soveritualet gikk fra 2-3 timer til 12 minutter. Vi kom til side to!</str>
+    <arr name="author">
+      <str>Ehrlin, Carl-Johan Forssén</str>
+    </arr>
+    <str name="genre">Godnatthistorier</str>
+    <str name="literature_type">Billedbøker</str>
+    <date name="published_date">2015-10-23T00:01:00Z</date>
+    <arr name="language_id">
+      <str>BM</str>
+      <str>NO</str>
+    </arr>
+    <float name="list_price">0.0</float>
+    <bool name="active">true</bool></doc>
+</result>
+</response>
