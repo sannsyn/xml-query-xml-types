@@ -24,7 +24,7 @@ tree =
   [
     testCase "sample 1" $
       queryFile Queries.query1 "samples/1.xml" >>=
-      \x -> assertEqual (show x) (Right ("Ehrlin, Carl-Johan Forssén", "9788202505929")) x
+      \x -> assertEqual (show x) (Right ("Ehrlin, Carl-Johan Forssén", "9788202505929", ["Bøker", "Barnas ARK"])) x
   ]
 
 queryFile :: XMLQuery.Tag a -> String -> IO (Either (Maybe Text) a)
