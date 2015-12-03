@@ -5,9 +5,10 @@ import XML.Query
 import qualified Data.Text as Text
 
 
-query1 :: Nodes (Text.Text, Text.Text)
+query1 :: Tag (Text.Text, Text.Text)
 query1 =
-  nodesNode (nodeTag tag)
+  tagNameIs "response" *>
+  tagNodes (nodesNode (nodeTag tag))
   where
     tag =
       tagNameIs "result" *>
