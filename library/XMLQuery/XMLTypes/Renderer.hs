@@ -1,6 +1,6 @@
-module XML.Query.XMLTypes.Renderer where
+module XMLQuery.XMLTypes.Renderer where
 
-import XML.Query.XMLTypes.Prelude
+import XMLQuery.XMLTypes.Prelude
 import Data.XML.Types
 import qualified Data.Text.Lazy.Builder as Builder
 import qualified Data.Text.Lazy as LazyText
@@ -32,5 +32,5 @@ content =
     ContentText x ->
       Builder.fromText x
     ContentEntity x -> 
-      either (error "XML.Query.XMLTypes.Renderer.content: corrupt ContentEntity") Builder.fromText $
+      either (error "XMLQuery.XMLTypes.Renderer.content: corrupt ContentEntity") Builder.fromText $
       HTMLEntities.Decoder.htmlEntity x

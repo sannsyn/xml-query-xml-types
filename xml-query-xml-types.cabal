@@ -1,7 +1,7 @@
 name:
   xml-query-xml-types
 version:
-  0.3
+  0.4
 synopsis:
   An interpreter of "xml-query" queries for the "xml-types" documents
 category:
@@ -41,14 +41,14 @@ library
   default-language:
     Haskell2010
   other-modules:
-    XML.Query.XMLTypes.Prelude
-    XML.Query.XMLTypes.Renderer
-    XML.Query.XMLTypes.Interpreter
+    XMLQuery.XMLTypes.Prelude
+    XMLQuery.XMLTypes.Renderer
+    XMLQuery.XMLTypes.Interpreter
   exposed-modules:
-    XML.Query.XMLTypes
+    XMLQuery.XMLTypes
   build-depends:
     html-entities >= 1.1 && < 1.2,
-    xml-query >= 0.8 && < 0.9,
+    xml-query >= 0.9 && < 0.10,
     xml-types >= 0.3.6 && < 0.4,
     --
     text == 1.*,

@@ -1,7 +1,7 @@
 module Main.Queries where
 
 import BasePrelude
-import XML.Query
+import XMLQuery
 import qualified Data.Text as Text
 
 

@@ -1,4 +1,4 @@
-module XML.Query.XMLTypes.Prelude
+module XMLQuery.XMLTypes.Prelude
 ( 
   module Exports,
 )

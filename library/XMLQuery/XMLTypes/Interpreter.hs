@@ -1,9 +1,9 @@
-module XML.Query.XMLTypes.Interpreter where
+module XMLQuery.XMLTypes.Interpreter where
 
-import XML.Query.XMLTypes.Prelude
+import XMLQuery.XMLTypes.Prelude
 import Data.XML.Types
-import qualified XML.Query.AST as AST
-import qualified XML.Query.XMLTypes.Renderer as Renderer
+import qualified XMLQuery.AST as AST
+import qualified XMLQuery.XMLTypes.Renderer as Renderer
 import qualified Success.Pure as Success
 
 

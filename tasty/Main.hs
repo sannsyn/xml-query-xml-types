@@ -10,8 +10,8 @@ import Test.Tasty.QuickCheck
 import Data.Text (Text)
 import qualified Test.QuickCheck as QuickCheck
 import qualified Main.Queries as Queries
-import qualified XML.Query as XMLQuery
-import qualified XML.Query.XMLTypes as XMLQueryXMLTypes
+import qualified XMLQuery as XMLQuery
+import qualified XMLQuery.XMLTypes as XMLQueryXMLTypes
 import qualified Text.XML as XMLConduit
 import qualified Data.XML.Types as XMLTypes
 
