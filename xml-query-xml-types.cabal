@@ -1,7 +1,7 @@
 name:
   xml-query-xml-types
 version:
-  0.2
+  0.2.1
 synopsis:
   An interpreter of "xml-query" queries for the "xml-types" documents
 category:
