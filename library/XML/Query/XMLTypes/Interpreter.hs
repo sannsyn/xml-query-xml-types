@@ -11,14 +11,24 @@ type Result =
   Success Text
 
 nodes :: Alt AST.Nodes a -> [Node] -> Result a
-nodes alt nodes =
-  runAlt interpreter alt
+nodes (Alt alternatives) input =
+  runAlternatives alternatives input
   where
-    interpreter :: forall a. AST.Nodes a -> Result a
-    interpreter =
-      \case
-        AST.NodesNode alt ->
-          asum (map (node alt) nodes)
+    runAlternatives alternatives input =
+      asum (map (\alternative -> runAlternative alternative input) alternatives)
+    runAlternative alternative input =
+      case alternative of
+        Ap fa altfab ->
+          case fa of
+            AST.NodesNode query ->
+              case input of
+                head : tail ->
+                  nodes altfab tail <*>
+                  node query head
+                _ ->
+                  Success.failure "No more nodes"
+        Pure a ->
+          Success.success a
 
 node :: Alt AST.Node a -> Node -> Result a
 node alt node =

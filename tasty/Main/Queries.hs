@@ -8,20 +8,20 @@ import qualified Data.Text as Text
 query1 :: Tag (Text.Text, Text.Text, [Text.Text])
 query1 =
   tagNameIs "response" *>
-  tagNodes (nodesNode (nodeTag tag))
+  tagNodes (nodesNodeAnywhere (nodeTag tag))
   where
     tag =
       tagNameIs "result" *>
-      tagNodes (nodesNode (nodeTag tag))
+      tagNodes (nodesNodeAnywhere (nodeTag tag))
       where
         tag =
           tagNameIs "doc" *>
-          tagNodes nodes
+          ((,,) <$> author <*> isbn <*> mainCatalogueArea)
           where
-            nodes =
-              (,,) <$> nodesNode (nodeTag author) <*> nodesNode (nodeTag isbn) <*> nodesNode (nodeTag mainCatalogueArea)
+            author =
+              tagNodes (nodesNodeAnywhere (nodeTag tag))
               where
-                author =
+                tag =
                   tagAttr attr *>
                   tagNodes nodes
                   where
@@ -29,17 +29,23 @@ query1 =
                       attrNameIs "name" *>
                       attrValueIs "author"
                     nodes =
-                      nodesNode (nodeTag (tagNodes (nodesNode (nodeText textValue))))
-                isbn =
+                      nodesNodeAnywhere (nodeTag (tagNodes (nodesNodeAnywhere (nodeText textValue))))
+            isbn =
+              tagNodes (nodesNodeAnywhere (nodeTag tag))
+              where
+                tag =
                   tagAttr attr *>
-                  tagNodes (nodesNode (nodeText textValue))
+                  tagNodes (nodesNodeAnywhere (nodeText textValue))
                   where
                     attr =
                       attrNameIs "name" *>
                       attrValueIs "isbn"
-                mainCatalogueArea =
+            mainCatalogueArea =
+              tagNodes (nodesNodeAnywhere (nodeTag tag))
+              where
+                tag =
                   tagAttr attr *>
-                  tagNodes (many (nodesNode (nodeTag (tagNodes (nodesNode (nodeText textValue))))))
+                  tagNodes (many (nodesNodeAnywhere (nodeTag (tagNodes (nodesNodeAnywhere (nodeText textValue))))))
                   where
                     attr =
                       attrNameIs "name" *>

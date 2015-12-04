@@ -48,7 +48,7 @@ library
     XML.Query.XMLTypes
   build-depends:
     html-entities >= 1.1 && < 1.2,
-    xml-query >= 0.4 && < 0.5,
+    xml-query >= 0.4.1 && < 0.5,
     xml-types >= 0.3.6 && < 0.4,
     --
     text == 1.*,
