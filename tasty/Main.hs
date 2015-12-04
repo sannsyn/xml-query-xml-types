@@ -27,8 +27,8 @@ tree =
       \x -> assertEqual (show x) (Right ("Ehrlin, Carl-Johan Forssén", "9788202505929", ["Bøker", "Barnas ARK"])) x
   ]
 
-queryFile :: XMLQuery.Tag a -> String -> IO (Either (Maybe Text) a)
+queryFile :: XMLQuery.Element a -> String -> IO (Either (Maybe Text) a)
 queryFile query filename =
   XMLConduit.readFile def filename >>=
-  pure . XMLQueryXMLTypes.tag query . XMLTypes.documentRoot . XMLConduit.toXMLDocument
+  pure . XMLQueryXMLTypes.element query . XMLTypes.documentRoot . XMLConduit.toXMLDocument
 

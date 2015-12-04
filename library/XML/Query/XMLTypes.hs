@@ -7,7 +7,10 @@ import qualified XML.Query.XMLTypes.Interpreter as Interpreter
 import qualified Success.Pure as Success
 
 
-tag :: Query.Tag a -> Element -> Either (Maybe Text) a
-tag query input =
-  Success.asEither (Interpreter.tag query input)
+element :: Query.Element a -> Element -> Either (Maybe Text) a
+element query input =
+  Success.asEither (Interpreter.element query input)
 
+nodes :: Query.Nodes a -> [Node] -> Either (Maybe Text) a
+nodes query input =
+  Success.asEither (Interpreter.nodes query input)

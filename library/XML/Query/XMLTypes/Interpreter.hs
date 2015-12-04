@@ -37,10 +37,10 @@ node alt node =
     interpreter :: forall a. AST.Node a -> Result a
     interpreter =
       \case
-        AST.NodeTag alt ->
+        AST.NodeElement alt ->
           case node of
-            NodeElement element ->
-              tag alt element
+            NodeElement input ->
+              element alt input
             _ ->
               Success.failure "Not an element node"
         AST.NodeText ast ->
@@ -50,19 +50,19 @@ node alt node =
             _ ->
               Success.failure "Not a content node"
 
-tag :: Alt AST.Tag a -> Element -> Result a
-tag alt element =
+element :: Alt AST.Element a -> Element -> Result a
+element alt input =
   runAlt interpreter alt
   where
-    interpreter :: forall a. AST.Tag a -> Result a
+    interpreter :: forall a. AST.Element a -> Result a
     interpreter =
       \case
-        AST.TagNameText textAST ->
-          text textAST (Renderer.run Renderer.name (elementName element))
-        AST.TagAttr attrAST ->
-          asum (map (attr attrAST) (elementAttributes element))
-        AST.TagNodes ast ->
-          nodes ast (elementNodes element)
+        AST.ElementNameText textAST ->
+          text textAST (Renderer.run Renderer.name (elementName input))
+        AST.ElementAttr attrAST ->
+          asum (map (attr attrAST) (elementAttributes input))
+        AST.ElementNodes ast ->
+          nodes ast (elementNodes input)
 
 attr :: Alt AST.Attr a -> (Name, [Content]) -> Result a
 attr alt input =

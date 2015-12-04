@@ -1,7 +1,7 @@
 name:
   xml-query-xml-types
 version:
-  0.2.1
+  0.3
 synopsis:
   An interpreter of "xml-query" queries for the "xml-types" documents
 category:
@@ -48,7 +48,7 @@ library
     XML.Query.XMLTypes
   build-depends:
     html-entities >= 1.1 && < 1.2,
-    xml-query >= 0.4.1 && < 0.5,
+    xml-query >= 0.8 && < 0.9,
     xml-types >= 0.3.6 && < 0.4,
     --
     text == 1.*,

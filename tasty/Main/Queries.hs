@@ -5,47 +5,47 @@ import XML.Query
 import qualified Data.Text as Text
 
 
-query1 :: Tag (Text.Text, Text.Text, [Text.Text])
+query1 :: Element (Text.Text, Text.Text, [Text.Text])
 query1 =
-  tagNameIs "response" *>
-  tagNodes (nodesNodeAnywhere (nodeTag tag))
+  elementNameIs "response" *>
+  elementNodes (nodesEventualNode (nodeElement element))
   where
-    tag =
-      tagNameIs "result" *>
-      tagNodes (nodesNodeAnywhere (nodeTag tag))
+    element =
+      elementNameIs "result" *>
+      elementNodes (nodesEventualNode (nodeElement element))
       where
-        tag =
-          tagNameIs "doc" *>
+        element =
+          elementNameIs "doc" *>
           ((,,) <$> author <*> isbn <*> mainCatalogueArea)
           where
             author =
-              tagNodes (nodesNodeAnywhere (nodeTag tag))
+              elementNodes (nodesEventualNode (nodeElement element))
               where
-                tag =
-                  tagAttr attr *>
-                  tagNodes nodes
+                element =
+                  elementAttr attr *>
+                  elementNodes nodes
                   where
                     attr =
                       attrNameIs "name" *>
                       attrValueIs "author"
                     nodes =
-                      nodesNodeAnywhere (nodeTag (tagNodes (nodesNodeAnywhere (nodeText textValue))))
+                      nodesEventualNode (nodeElement (elementNodes (nodesEventualNode (nodeText textValue))))
             isbn =
-              tagNodes (nodesNodeAnywhere (nodeTag tag))
+              elementNodes (nodesEventualNode (nodeElement element))
               where
-                tag =
-                  tagAttr attr *>
-                  tagNodes (nodesNodeAnywhere (nodeText textValue))
+                element =
+                  elementAttr attr *>
+                  elementNodes (nodesEventualNode (nodeText textValue))
                   where
                     attr =
                       attrNameIs "name" *>
                       attrValueIs "isbn"
             mainCatalogueArea =
-              tagNodes (nodesNodeAnywhere (nodeTag tag))
+              elementNodes (nodesEventualNode (nodeElement element))
               where
-                tag =
-                  tagAttr attr *>
-                  tagNodes (many (nodesNodeAnywhere (nodeTag (tagNodes (nodesNodeAnywhere (nodeText textValue))))))
+                element =
+                  elementAttr attr *>
+                  elementNodes (many (nodesEventualNode (nodeElement (elementNodes (nodesEventualNode (nodeText textValue))))))
                   where
                     attr =
                       attrNameIs "name" *>
