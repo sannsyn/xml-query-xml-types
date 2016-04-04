@@ -1,7 +1,7 @@
 name:
   xml-query-xml-types
 version:
-  0.4
+  0.4.1
 synopsis:
   An interpreter of "xml-query" queries for the "xml-types" documents
 category:
@@ -55,8 +55,8 @@ library
     --
     free >= 4.12 && < 5,
     success == 0.2.*,
-    transformers >= 0.3 && < 0.5,
-    base-prelude >= 0.1.19 && < 0.2
+    transformers >= 0.3 && < 0.6,
+    base-prelude >= 0.1.19 && < 2
 
 
 test-suite tasty
